@@ -9,26 +9,52 @@ namespace HHShortStory
     public class Controller
     {
         View view = new View();
+       
+
+        public Controller(string name)
+        {
+            // TODO: Complete member initialization
+            view.Name = name;
+        }
+        
         public void Story()
         {
 
-            string opotion1 = view.displayQuestion(1);
-            for (int i = 1; i < 7; i++)
+            string opotion1 = view.DisplayQuestion(1);
+            for (int i = 1; i < 8; i++)
             {
                 
                 if (opotion1 == "a")
                 {
-                   int k=view.Dead(i);
-                   
-                    opotion1 = view.displayQuestion(k); 
+                    int k = view.Dead(i);
+
+                    opotion1 = view.DisplayQuestion(k);
 
                 }
                 else if (opotion1 == "b")
                 {
-                    opotion1 = view.displayQuestion(i+1); 
+                    opotion1 = view.DisplayQuestion(i + 1);
                 }
-                   
+
             }
+            
+
+
+        }
+
+        public int timer(int time)
+        {
+            //create int set at 30s
+            Console.Write("Decide in the next:{0}    seconds, or die!!!!", time);
+            for (int a = time; a >= 0; a--)
+            {
+                Console.CursorLeft = 22;
+                Console.Write(a.ToString());
+                System.Threading.Thread.Sleep(1000);
+                time--;
+            }
+            return time;
+        }
             //switch (opotion1)
             //{
             //    case "a":
@@ -115,7 +141,7 @@ namespace HHShortStory
             //        break;
 
             //}
-        }
+        
     
 
     }
