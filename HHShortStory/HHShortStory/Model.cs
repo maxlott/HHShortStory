@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HHShortStory
 {
-    class Model
+    public class StoryModel
     {
+
     }
 }
