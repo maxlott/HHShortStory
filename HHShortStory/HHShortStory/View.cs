@@ -10,25 +10,29 @@ namespace HHShortStory
     internal class View
 
     {
-<<<<<<< HEAD
+        public string Name { get; set; }
+ public int count = 0;
 
-=======
-        public int count = 0;
->>>>>>> View
+        private bool keepRunningTimer = true;
+
         public void askUserName()
         {
             Console.WriteLine("Please Enter your name");
-            string name = Console.ReadLine();
+             Name= Console.ReadLine();
 
             Console.WriteLine(
                 "The year is 1969 and you have just moved to a house in Baltimore, America.\nYou have heard stories of how this is apparently the\nhaunted capital of America " +
                 "but nothing could have prepared you for what was\nabout to happen. " +
-                "This is the story of your first night in the house....");
-            Console.ReadLine();
+                "This is the story of your first night in the house....\n");
+
+            
+
+            //Console.ReadLine();
+
         }
 
 
-        public string displayQuestion(int questionNum)
+        public string DisplayQuestion(int questionNum)
         {
 
 
@@ -40,8 +44,14 @@ namespace HHShortStory
                                   " Do you:" +
                                   "\nA)Ignore the noise and try to sleep\nB)Decide that it's worth investigating.";
                 Console.WriteLine(qstn);
+                keepRunningTimer = true;
+
+                Task task = new Task(()=> Timer(15));
+               // task.Start();
                 string userInput = Console.ReadLine();
-                 
+
+                keepRunningTimer = false;
+
                 return userInput;
 
             }
@@ -60,7 +70,8 @@ namespace HHShortStory
                 string qstn = "You sprint as fast as you can, but you trip over and knock your self out." +
                                   " As you regain consciousness, you doubt yourself as to what really happened before." +
                                   " You decide to enter the kitchen again and find everything normal. " +
-                                  "You decide that before must have been a crazy dream, as you had been very stressed lately BUT then out of nowhere, a wild Charmander appears. Do you...\n A) Try and battle the pokemon with a water bottle next to youB) Stay calm and try to find out why it's in your house";
+                                  "You decide that before must have been a crazy dream, as you had been very stressed lately BUT then out of nowhere, a wild Charmander appears. Do you...\n A) Try and battle the pokemon with a water bottle next to you\nB) Stay calm and try to find out why it's in your house";
+                Console.WriteLine(qstn);
                 string userInput = Console.ReadLine();
                 return userInput;
             }
@@ -82,18 +93,23 @@ namespace HHShortStory
             else if (questionNum == 6)
             {
                 Console.WriteLine(
-                    "He glee's in excitement, as any sane person will know that a psychic Pokemon is super effective against ghost type. You and Charmander then come up with a plan to lure the Gengar into a trap. You decide to bait him by putting something he loves in the middle of the lounge:\nA) Pokesnack\n B) Cow");
+                    "He glee's in excitement, as any sane person will know that a psychic Pokemon is super effective against ghost type. You and Charmander then come up with a plan to lure the Gengar into a trap. You decide to bait him by putting something he loves in the middle of the lounge:\nA) Pokesnack\nB) Cow");
                 string userInput = Console.ReadLine();
                 return userInput;
             }
-<<<<<<< HEAD
-            else
+
+            else if(questionNum==7)
             {
                 Console.WriteLine(
                     "Gengar takes the bait and appears in the lounge. You and Charmander are hiding behind the couch watching Gengar approach the Cow. Just as he is about to attack the cow you throw out your abra!! Abra attack that Gengar you scream!! Gengar tries to attack your abra but is beaten by the awesome might of abra's psychic abilities. Gengar screams, and leaves the house you decide to:\nA) Chase the Gengar to get rid of him forever\nB) Decide to go back to bed after a crazy night");
                 string userInput = Console.ReadLine();
                 return userInput;
             }
+            else
+            {
+                 Console.WriteLine("Well done Pokemone Master {0}, your night in the terrible haunted house is over",Name);
+            }
+            return null;
 
         }
 
@@ -109,18 +125,9 @@ namespace HHShortStory
                     Console.WriteLine(line); // Write to console.
                 }
             }
-=======
-             else if(questionNum==7)
-             {
-                 Console.WriteLine("Gengar takes the bait and appears in the lounge. You and Charmander are hiding behind the couch watching Gengar approach the Cow. Just as he is about to attack the cow you throw out your abra!! Abra attack that Gengar you scream!! Gengar tries to attack your abra but is beaten by the awesome might of abra's psychic abilities. Gengar screams, and leaves the house you decide to:\nA) Chase the Gengar to get rid of him forever\nB) Decide to go back to bed after a crazy night");
-                 string userInput = Console.ReadLine();
-                 return userInput;
-             }
-             else
-             {
-                 Console.WriteLine("game is over");
-             }
-            return null;
+
+          
+           
         }
 
         public int Dead(int number)
@@ -129,74 +136,43 @@ namespace HHShortStory
             count++;
             if (count > 1)
             {
-                Console.WriteLine(" A truck falls from the sky and lands on you....you are dead, the game is over");
+                Console.WriteLine(" A truck falls from the sky and lands on you....you are dead, the game is over\n");
             }
             else
             {
-                Console.WriteLine("You are dead!!!!! But wow, a magical genie suddenly appears and grants you another life, use it more wisely this time!!");
+                Console.WriteLine("You are dead!!!!! But wow, a magical genie suddenly appears and grants you another life, use it more wisely this time!!\n");
                 
                 return number;
             }
             return 0;
 
 
->>>>>>> View
         }
 
-        //public void asciiTitle()
-        //{
-        //    List<string> list = new List<string>();
-        //    using (StreamReader reader = new StreamReader("title.txt"))
-        //    {
-        //        string line;
-        //        while ((line = reader.ReadLine()) != null)
-        //        {
-        //            list.Add(line); // Add to list.
-        //            Console.WriteLine(line); // Write to console.
-        //        }
-        //    }
-        //}
-
-        public int timer(int time)
+        public int Timer(int time)
         {
             //create int set at 30s
             Console.Write("Decide in the next:{0}    seconds, or die!!!!", time);
-            for (int a = 15; a >= 0; a--)
+            for (int a = time; a >= 0; a--)
             {
-                Console.CursorLeft = 22;
+                if (!keepRunningTimer)
+                {
+                    break;
+                }
+
+                //Console.CursorLeft = 22;
+                for (int j = 0;  j < (a/10 +1) ; j++)
+                {
+                    
+                Console.Write("\b");
+                }
                 Console.Write(a.ToString());
                 System.Threading.Thread.Sleep(1000);
+                time--;
             }
             return time;
         }
-
-        
-
-        public void Dead()
-            {
-                Console.WriteLine("A truck falls from the sky and kills you.");
-
-            }
-
-        public void defaultcase()
-        {
-            
-        }
-        //    ()
-        //    {
-
-<<<<<<< HEAD
-        //    }
-=======
-        public void Life()
-        {
-
-        }
-
->>>>>>> View
-
-
-            //
+      
 
         }
     }

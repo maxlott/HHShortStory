@@ -14,14 +14,14 @@ namespace HHShortStory
            view.asciiTitle();
             //view.asciiTitle();
             view.askUserName();
-<<<<<<< HEAD
-            view.timer(15);
+            Controller story = new Controller(view.Name);
+           story.Story();
             
-            StoryModel story=new StoryModel();
-=======
-            Controller story=new Controller();
->>>>>>> View
-            story.Story();
+         //   StoryModel story=new StoryModel();
+
+            
+            //story.timer(15);
+           
         }
 
 
