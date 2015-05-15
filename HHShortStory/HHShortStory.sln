@@ -5,6 +5,11 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHShortStory", "HHShortStory\HHShortStory.csproj", "{4D1583AB-87BA-4DA6-A95D-D5EAC9BE5E7B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{543C3635-FE8E-48E2-A408-A6985370DD73}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\..\Users\user\Desktop\charmander.txt = ..\..\..\..\..\..\Users\user\Desktop\charmander.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
