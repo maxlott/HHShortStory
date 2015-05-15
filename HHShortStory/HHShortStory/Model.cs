@@ -9,23 +9,23 @@ namespace HHShortStory
 {
     public class Model
     {
-        List<string> story = new List<string>();
-
-        public void QuQuestion()
+        View view = new View();
+        
+        public void Question()
         {
-            //
-            
+          
+
         }
 
-        public void UserStory()
-        {
-            using (StreamWriter writer = new StreamWriter("Story.txt"))
-            {
-                foreach (var line in story)
-                {
-                    writer.WriteLine(line);
-                }
-            }
-        }
+        //public void UserStory()
+        //{
+        //    using (StreamWriter writer = new StreamWriter("Story.txt"))
+        //    {
+        //        foreach (var line in questions)
+        //        {
+        //            writer.WriteLine(line);
+        //        }
+        //    }
+        //}
     }
 }

@@ -12,7 +12,7 @@ namespace HHShortStory
         {
            View view = new View();
             view.askUserName();
-            StoryModel story=new StoryModel();
+            Controller story=new Controller();
             story.Story();
         }
 
