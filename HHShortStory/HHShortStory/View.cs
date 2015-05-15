@@ -1,32 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HHShortStory
 {
-    class View
+    internal class View
 
     {
+
         public void askUserName()
         {
             Console.WriteLine("Please Enter your name");
             string name = Console.ReadLine();
 
             Console.WriteLine(
-                "The year is 1969 and you have just moved to a house in Baltimore, America." +
-                " You have heard stories of how this is apparently the haunted capital of America " +
-                "but nothing could have prepared you for what was about to happen. " +
+                "The year is 1969 and you have just moved to a house in Baltimore, America.\nYou have heard stories of how this is apparently the\nhaunted capital of America " +
+                "but nothing could have prepared you for what was\nabout to happen. " +
                 "This is the story of your first night in the house....");
+            Console.ReadLine();
         }
 
 
         public string displayQuestion(int questionNum)
         {
-          
 
-             if (questionNum == 1)
+
+            if (questionNum == 1)
             {
                 Console.WriteLine("As you settled down in bed, a loud thump from the kitchen is heard. " +
                                   "Knowing the stories of the town you are living in, instant fear spreads to your mind." +
@@ -43,7 +45,7 @@ namespace HHShortStory
                                   " \nA)Decide it doesn't matter, and try to make yourself some toast \nB)Scream and run away!!");
                 string userInput = Console.ReadLine();
                 return userInput;
-                   
+
             }
             else if (questionNum == 3)
             {
@@ -54,45 +56,99 @@ namespace HHShortStory
                 string userInput = Console.ReadLine();
                 return userInput;
             }
-            else if (questionNum==4)
+            else if (questionNum == 4)
             {
-                Console.WriteLine("As you talk to the Charmander, you find out that there is a rogue Gengar in your house, and he has been terrorizing your local town. Apparently Charmander has been chasing him for weeks and then finally tracked him down to your house." +
-                                  " He asks for you help in catching Gengar, do you: \n A) Pour some water on Charmander and then kick him out of your house \n B) Join forces with this Charmander, and take on the evil Gengar");
+                Console.WriteLine(
+                    "As you talk to the Charmander, you find out that there is a rogue Gengar in your house, and he has been terrorizing your local town. Apparently Charmander has been chasing him for weeks and then finally tracked him down to your house." +
+                    " He asks for you help in catching Gengar, do you: \n A) Pour some water on Charmander and then kick him out of your house \n B) Join forces with this Charmander, and take on the evil Gengar");
                 string userInput = Console.ReadLine();
                 return userInput;
             }
             else if (questionNum == 5)
             {
-                Console.WriteLine("You trust your better judgement, and decide to help the Charmander to get the Gengar out of your house. He asks if you have any Pokemon of your own, you tell him that you own a:\nA) Geodude\nB) Abra");
+                Console.WriteLine(
+                    "You trust your better judgement, and decide to help the Charmander to get the Gengar out of your house. He asks if you have any Pokemon of your own, you tell him that you own a:\nA) Geodude\nB) Abra");
                 string userInput = Console.ReadLine();
                 return userInput;
             }
-            else if (questionNum==6)
+            else if (questionNum == 6)
             {
-              Console.WriteLine("He glee's in excitement, as any sane person will know that a psychic Pokemon is super effective against ghost type. You and Charmander then come up with a plan to lure the Gengar into a trap. You decide to bait him by putting something he loves in the middle of the lounge:\nA) Pokesnack\n B) Cow");
-              string userInput = Console.ReadLine();
-              return userInput;
+                Console.WriteLine(
+                    "He glee's in excitement, as any sane person will know that a psychic Pokemon is super effective against ghost type. You and Charmander then come up with a plan to lure the Gengar into a trap. You decide to bait him by putting something he loves in the middle of the lounge:\nA) Pokesnack\n B) Cow");
+                string userInput = Console.ReadLine();
+                return userInput;
             }
-             else 
-             {
-                 Console.WriteLine("Gengar takes the bait and appears in the lounge. You and Charmander are hiding behind the couch watching Gengar approach the Cow. Just as he is about to attack the cow you throw out your abra!! Abra attack that Gengar you scream!! Gengar tries to attack your abra but is beaten by the awesome might of abra's psychic abilities. Gengar screams, and leaves the house you decide to:\nA) Chase the Gengar to get rid of him forever\nB) Decide to go back to bed after a crazy night");
-                 string userInput = Console.ReadLine();
-                 return userInput;
-             }
-            
+            else
+            {
+                Console.WriteLine(
+                    "Gengar takes the bait and appears in the lounge. You and Charmander are hiding behind the couch watching Gengar approach the Cow. Just as he is about to attack the cow you throw out your abra!! Abra attack that Gengar you scream!! Gengar tries to attack your abra but is beaten by the awesome might of abra's psychic abilities. Gengar screams, and leaves the house you decide to:\nA) Chase the Gengar to get rid of him forever\nB) Decide to go back to bed after a crazy night");
+                string userInput = Console.ReadLine();
+                return userInput;
+            }
+
         }
+
+        //public void asciiCharmander()
+        //{
+        //    List<string> list = new List<string>();
+        //    using (StreamReader reader = new StreamReader("charmander.txt"))
+        //        {
+        //        string line;
+        //        while ((line = reader.ReadLine()) != null)
+        //            {
+        //                list.Add(line); // Add to list.
+        //                Console.WriteLine(line); // Write to console.
+        //            }
+        //        }
+        //}
+
+        //public void asciiTitle()
+        //{
+        //    List<string> list = new List<string>();
+        //    using (StreamReader reader = new StreamReader("title.txt"))
+        //    {
+        //        string line;
+        //        while ((line = reader.ReadLine()) != null)
+        //        {
+        //            list.Add(line); // Add to list.
+        //            Console.WriteLine(line); // Write to console.
+        //        }
+        //    }
+        //}
+
+        public int timer(int time)
+        {
+            //create int set at 30s
+            Console.Write("Your time left:{0}", time);
+            for (int a = 15; a >= 0; a--)
+            {
+                Console.CursorLeft = 22;
+                Console.Write(a.ToString());
+                System.Threading.Thread.Sleep(1000);
+            }
+            return time;
+        }
+
+        
 
         public void Dead()
+            {
+                Console.WriteLine("A truck falls from the sky and kills you.");
+
+            }
+
+        public void defaultcase()
         {
             
         }
-        public  void defaultcase()
-        {
-            
+        //    ()
+        //    {
+
+        //    }
+
+
+            //
+
         }
-
-
-        //
-
     }
-}
+
