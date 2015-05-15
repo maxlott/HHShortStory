@@ -88,19 +88,19 @@ namespace HHShortStory
 
         }
 
-        //public void asciiCharmander()
-        //{
-        //    List<string> list = new List<string>();
-        //    using (StreamReader reader = new StreamReader("charmander.txt"))
-        //        {
-        //        string line;
-        //        while ((line = reader.ReadLine()) != null)
-        //            {
-        //                list.Add(line); // Add to list.
-        //                Console.WriteLine(line); // Write to console.
-        //            }
-        //        }
-        //}
+        public void asciiTitle()
+        {
+            List<string> list = new List<string>();
+            using (StreamReader reader = new StreamReader("title for project.txt"))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    list.Add(line); // Add to list.
+                    Console.WriteLine(line); // Write to console.
+                }
+            }
+        }
 
         //public void asciiTitle()
         //{
@@ -119,7 +119,7 @@ namespace HHShortStory
         public int timer(int time)
         {
             //create int set at 30s
-            Console.Write("Your time left:{0}", time);
+            Console.Write("Decide in the next:{0}    seconds, or die!!!!", time);
             for (int a = 15; a >= 0; a--)
             {
                 Console.CursorLeft = 22;
